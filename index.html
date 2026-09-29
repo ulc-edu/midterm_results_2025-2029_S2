@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ULC Midterm Result Portal</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI, Arial;
+background:#8b0000;
+color:white;
+}
+
+/* LEFT BACKGROUND */
+
+.left-bg{
+position:fixed;
+left:0;
+top:0;
+width:45%;
+height:100%;
+background:
+linear-gradient(rgba(139,0,0,0.4), rgba(139,0,0,0.4)),
+url("background.jpg");
+background-size:cover;
+background-position:center;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+margin-left:45%;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+/* LOGO */
+
+.logo{
+position:fixed;
+right:30px;
+top:30px;
+width:80px;
+}
+
+/* TITLES */
+
+.title{
+color:#d4af37;
+font-size:36px;
+font-weight:bold;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#d4af37;
+font-size:20px;
+margin-bottom:6px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:35px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+color:black;
+width:320px;
+max-width:90%;
+}
+
+/* INPUTS */
+
+input{
+width:100%;
+padding:14px;
+margin-top:12px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:16px;
+box-sizing:border-box;
+}
+
+/* BUTTON */
+
+button{
+margin-top:18px;
+width:100%;
+padding:14px;
+background:#d4af37;
+border:none;
+border-radius:6px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* MESSAGE */
+
+#msg{
+margin-top:10px;
+color:red;
+}
+
+/* FOOTER */
+
+.footer{
+position:fixed;
+bottom:15px;
+text-align:center;
+width:100%;
+font-size:14px;
+}
+
+/* MOBILE DESIGN */
+
+@media(max-width:768px){
+
+.left-bg{
+position:relative;
+width:100%;
+height:220px;
+}
+
+.container{
+margin-left:0;
+padding-top:20px;
+}
+
+.logo{
+position:absolute;
+right:15px;
+top:15px;
+width:60px;
+}
+
+.title{
+font-size:26px;
+}
+
+.subtitle{
+font-size:16px;
+}
+
+.card{
+width:90%;
+padding:25px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="left-bg"></div>
+
+<img src="logo.png" class="logo">
+
+<div class="container">
+
+<div class="title">UNIFIED LAW COLLEGE CHINIOT</div>
+
+<div class="subtitle">MIDTERM EXAM RESULT</div>
+
+<div class="subtitle">BATCH 2025-2029</div>
+
+<div class="subtitle">SEMESTER 2</div>
+
+<div class="card">
+
+<input id="roll" placeholder="Roll Number">
+
+<input id="pass" type="password" placeholder="Password">
+
+<button onclick="check()" id="btn">View Result</button>
+
+<p id="msg"></p>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<div>www.ulc.edu.pk</div>
+<div>2-KM Lahore Road Chiniot</div>
+
+</div>
+
+<script src="data.js"></script>
+
+<script>
+
+function check(){
+
+var r=document.getElementById("roll").value;
+var p=document.getElementById("pass").value;
+
+var btn=document.getElementById("btn");
+
+btn.innerText="Checking...";
+
+setTimeout(function(){
+
+if(students[r] && students[r]==p){
+
+window.location.href=r+".pdf";
+
+}else{
+
+document.getElementById("msg").innerText="Invalid Roll Number or Password";
+btn.innerText="View Result";
+
+}
+
+},1000);
+
+}
+
+</script>
+
+</body>
+</html>
